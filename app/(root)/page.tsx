@@ -8,7 +8,8 @@ import { StartupTypeCard } from "@/components/StartupCard";
 export default async function Home({ searchParams }: { searchParams: Promise<{query?: string}> }) {
   
   const query = (await searchParams).query;
-  const posts = await client.fetch(STARTUP_QUERY); 
+  const params = { search: query || null };
+  const posts = await client.fetch(STARTUP_QUERY, params); 
 
   return (
     <>
