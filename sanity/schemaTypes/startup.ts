@@ -47,7 +47,7 @@ export const startup = defineType({
         }),
 
         defineField({
-            name: "Pitch",
+            name: "pitch",
             type: "markdown"
         })
     ]
