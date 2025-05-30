@@ -37,7 +37,7 @@ const StartupCard = ({ post } : { post: StartupTypeCard }) => {
                     </Link>
                 </div>
                 <Link className="w-12 h-12 relative" href={`/user/${post.author?._id}`}>
-                    <Image src={post.author?.image} alt="placeholder" fill className="rounded-full object-cover"/>
+                    <Image src={post.author?.image || "https://placehold.co/48x48"} alt={(post.author?.name) ?? "Avatar"} fill className="rounded-full object-cover"/>
                 </Link>
             </div>
             
