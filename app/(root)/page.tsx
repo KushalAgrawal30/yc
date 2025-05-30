@@ -3,7 +3,6 @@ import StartupCard from "@/components/StartupCard";
 import { client } from "@/sanity/lib/client";
 import { STARTUP_QUERY } from "@/sanity/lib/queries";
 import { StartupTypeCard } from "@/components/StartupCard";
-import { auth } from "@/auth";
 
 
 export default async function Home({ searchParams }: { searchParams: Promise<{query?: string}> }) {
@@ -11,9 +10,6 @@ export default async function Home({ searchParams }: { searchParams: Promise<{qu
   const query = (await searchParams).query;
   const params = { search: query || null };
 
-  const session = await auth();
-
-  console.log(session)
 
   const posts = await client.fetch(STARTUP_QUERY, params); 
 

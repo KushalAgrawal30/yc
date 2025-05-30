@@ -3,7 +3,6 @@ import GitHub from "next-auth/providers/github"
 import { client } from "@/sanity/lib/client"
 import { AUTHOR_BY_ID_QUERY } from "@/sanity/lib/queries"
 import { writeClient } from "@/sanity/lib/write-client"
-import { use } from "react"
  
 export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [GitHub],
@@ -28,7 +27,6 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     async jwt({ token, account, profile }){
       if(account && profile){
         const user = await client.withConfig({ useCdn: false }).fetch(AUTHOR_BY_ID_QUERY, { id: profile?.id});
-        console.log(user)
         token.id = user?._id 
       }
 
